@@ -27,7 +27,7 @@ app.controller('HomeCtrl', [
       $scope.blog1 = {
         title: "An Afternoon in Capitol Reef",
         image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/capitolreef1.png?alt=media&token=2aa160d6-47e5-4969-8476-015aa3c27b4c",
-        intro: "It all started late one night, near a middle-of-nowhere town called Leeds, UT. The sleepy town was well past its own bedtime. That didn’t stop a meet up of the best adventure crew around...",
+        intro: "It all started late one night, near a middle-of-nowhere town called Leeds, UT. The sleepy town was well past its own bedtime. That didn\’t stop a meet up of the best adventure crew around...",
         link: "file:///Users/adamthompson/Documents/personal/oac/articles/09172016yankeedoodlecanyon.html"
       };
       $scope.blog2 = {
