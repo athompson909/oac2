@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCuLNTDb1E1WRrKcLL5oQvXFHCQsDCBFg8",
+      authDomain: "outdooradventurecrew-a3400.firebaseapp.com",
+      databaseURL: "https://outdooradventurecrew-a3400.firebaseio.com",
+      storageBucket: "outdooradventurecrew-a3400.appspot.com",
+      messagingSenderId: "65257941341"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script> -->
+  <script src="https://angular-ui.github.com/ui-router/release/angular-ui-router.js"></script>
+
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <script src="../js/home.js"></script>
+  <script src="../js/blog_ctrl.js"></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="../stylesheets/main.css">
+  <link rel="stylesheet" href="../stylesheets/advlog.css">
+  <link rel="stylesheet" href="../stylesheets/article.css">
+  <link rel="stylesheet" href="../stylesheets/overlay.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans|Permanent+Marker|Russo+One" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Arvo|Bree+Serif|Cabin|Permanent+Marker|Voltaire" rel="stylesheet"> -->
+
+<body>
+
+<!-- facebook javascript sdk -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div ng-app="OutdoorAdvCrew" ng-controller="BlogCtrl">
+
+  <header class="container-fluid" id="header">
+    <div class="row">
+      <nav class="col-sm-5 text-left header-title">
+        <a href="../index.html#/home">Outdoor Adventure Crew</a>
+      </nav>
+      <nav class="col-sm-7 text-right header-icons">
+        <a href="../index.html#/blog">Adventure Log</a><a href="../index.html#/gearrev">Reviews</a><a href="../index.html#/gallery">Gallery</a><a href="../index.html#/survival">Survival Guide</a>
+      </nav>
+    </div>
+  </header>
+
+    <section class="jumbotron">
+      <div class="container" id="jumbo-title">
+        <div class="row">
+          <h3>Yankee Doodle Canyon</h3>
+        </div>
+      </div>
+    </section>
+    <div id="main">
+      <section class="container-fluid" id="main-container-blog">
+        <div class="row">
+
+          <div class="col-sm-8 main-blog">
+            <div class="main-blog-body">
+              <div class="article-header">
+                <p><span>Date: </span>9/17/2016</p>
+                <p><span>Logged by: </span>Kimberly Jackson</p>
+              </div>
+              <hr>
+              <div class="row title-div-article text-center">Quick Stats:</div>
+              <hr><br>
+                <p><span>Days: </span>2</p>
+                <p><span>Nights: </span>1</p>
+                <p><span>Where we camped: </span>37° 14.215 N 113° 27.233 W (There is primitive, disbursed camping along this entire road)</p>
+                <p><span>Trails we Hiked: </span>Yankee Doodle Canyon</p>
+                <p><span>Miles Hiked: </span>Between 1-2</p>
+                <p><span>Permits needed: </span>No</p>
+                <p><span>Suggested time of year: </span>Perhaps a little earlier fall/late summer. We were in a canyon, so always shaded. Camping was a tad cold in September</p>
+                <p><span>Gear Rating: </span>9/10 (Basic technical gear required)</p>
+                <p><span>Difficulty: </span>8/10 (Beginning technical skills required)</p>
+                <p><span>Enjoyability: </span>7/10</p>
+              <hr>
+              <div class="row title-div-article text-center">Log:</div>
+              <hr><br>
+              <div class="article-content">
+                <p>It all started late one night, near a middle-of-nowhere town called Leeds, UT. The sleepy town was well past its own bedtime. That didn’t stop a meet up of the best adventure crew around. Despite conventional wisdom and biological clocks, the Provo crew pulled onto Silver Reef Road shortly after midnight. Rachel, Adam, Ethan, Michael, and Brayden found Kimberly parked under a streetlight. They paused a moment to admire the new paint job on her car (A lovely beach and ocean scene that is fun, if somewhat ghetto). The two cars formed a caravan and set off to find the campsite. </p>
+                <p>After several U-turn situations (ok, maybe only like 2), the group found the right road and eventually the right campsite. Tarps were laid. Sleeping spots claimed. Adam opted to sleep in the backseat of one of the cars, despite implications this proved he had a delicate composition. Kimberly and Rachel slept on the fun tarp. Michael, Brayden, and Ethan on the mediocre-at-best tarp. Everyone settled in and passed out around 2 AM. It was a surprisingly cold night for  being Southern Utah, but everyone survived.</p>
+                <p>In the morning, the group was briefly awakened by a lovely dog wandering through camp. Kimberly was the first up, under the assumption there is no better way to awake in the morning than via friendly dog. Adam was up next. Rachel, being insane and a total triathlon animal, got up and went for a run. Uphill. Both ways. Michael, Ethan, and Brayden finally finished morning cuddles and got up. Breakfast was bring your own, so various muffins, oatmeal, etc. were pulled out. Michael didn’t have water (cause that’s not important for hiking) and was going to attempt Gatorade oatmeal. Kimberly saved his butt with some extra water. Rachel returned and everyone piled into the cars for some more dirt-road-in-barely-road-worthy-sedans adventuring.</p>
+                <p>After another round of U-turn goodness, the trailhead was discovered. Everyone geared up and set out. The main repel into the canyon was in use by a rather large group, they pointed out a side way in so the crew wouldn’t have to wait. A little climbing and the first drop was underway. Pausing only to take some sick picks, everyone was down in no time. The other group was having some difficulty, as one of their repellers was uncomfortable with the drop and needed some coaxing. The crew stayed on hand for a minute in case there was anything they could do to help. Deciding there wasn’t much they could contribute, they moved on down the canyon.</p>
+                <p>The canyon had a nice handful of places to clip into the rock to repel. Honestly not all of them necessarily required gear to traverse, but adventurers take all the fun they can get. Some areas the less gear the better, in fact. The group happened upon several sections of puddle and mud filled canyon. Ethan made short work of these sections opting for a sideways, barefoot wall walk. Eventually the surprisingly deep pools of water and mud were unavoidable and everyone had to get dirty. One area in particular was something of a sinkhole. Getting down was tricky, but getting out took a hand from someone above to help pull up. Unless you’re Brayden. Who was the first out and managed to do a crazy Spiderman run jump out of the pit to pull Kimberly up after. This area definitely took the longest to get through, but was fun and rewarding. Plus it had little tiny frogs, so that’s fun. It was also decided that a new line of paint colors based on the faint olive brown mud ought to be released. So, keep an eye out in stores for that.</p>
+                <p>The last bit of the hike out of the canyon was quite sheer. Rachel spearheaded an effort to find an easier way out, and found a scenic dead end. Ethan and Adam were the first to brave the actual way out. It was pretty slick, but not impossible and the crew made it out safely. Everyone trooped back to the cars in their climbing gear, looking like total action heroes. Another day saved by outdoor adventure.</p>
+              </div>
+              <div class="gallery">
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-4">
+            <div class="top-spacing"></div>
+            <hr>
+            <div class="text-center sidebar-title-div">Featured</div><hr>
+            <div class="sidebar-featured">
+              <div ng-repeat="article in featured">
+                <div class="row">
+
+                  <div class="col-sm-2 sidebar-article-part1">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a><br><br>
+                  </div>
+                  <div class="col-sm-2 sidebar-article-part2">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><p class="sidebar-article-title">{{article.title}}</p></a>
+                    <p class="sidebar-article-date">{{article.date}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISMENT]</a></div>
+            <hr>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="row">
+          <div class="col-sm-12" id="comment">
+            <h3>COMMENTS</h3>
+            <div class="fb-comments" data-href="file:///Users/adamthompson/Documents/personal/oac/articles/09172016yankeedoodlecanyon.html" data-numposts="5"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  <footer class="container-fluid">
+    <div class="row text-center" id="footerrow">
+
+      <div class="col-sm-6 text-left" id="fleftnav">
+      <a href="#/subscribe">Subscribe to our email list</a><br>
+        <a href="#/contact">Contact us</a><br>
+        <a href="#/promote">Promote with us</a><br>
+      </div>
+      <div class="col-sm-6 text-right" id="frightnav">
+      <a id="promote" href="#/promote">FOLLOW US! </a>
+        <a href="https://www.instagram.com/outdooradventurecrew/"><img src="../images/socialmedia/instagram.png"></a><a href="#"><img src="../images/socialmedia/facebook.png"></a><a href="#"><img src="../images/socialmedia/youtube.png"></a><a href="#"><img src="../images/socialmedia/vimeo.png"></a><a href="#"><img src="../images/socialmedia/pinterest.png"></a><a href="#"><img src="../images/socialmedia/flickr.png"></a><a href="#"><img src="../images/socialmedia/tumblr.png"></a>
+      </div>
+    </div>
+    <!-- <div class="line"></div> -->
+    <hr>
+    <div class="col-sm-12 text-center" id="copyright">Copyright &copy 2016 | Outdoor Adventure Crew | this site developed and maintained by Adam Thompson</div>
+  </footer>
+
+</div>
+
+
+</body>
+</html>
