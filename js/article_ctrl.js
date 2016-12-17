@@ -16,16 +16,6 @@ window.fbAsyncInit = function() {
    fjs.parentNode.insertBefore(js, fjs);
  }(document, 'script', 'facebook-jssdk'));
 
-// window.FB = {
-//     XFBML: {
-//         parse: function (elem) {
-//             // var pre = document.createElement('pre');
-//             // pre.textContent = elem.innerHTML;
-//             // document.getElementById('fb-comment-box').innerHTML = pre.outerHTML;
-//         }
-//     }
-// };
-
 app.controller('ArticleCtrl', [
     '$scope',
     'factory',
@@ -73,32 +63,6 @@ app.controller('ArticleCtrl', [
         $(".jumbotron").css("background","url('"+$scope.article.jumbotronImageUrl+"') no-repeat center center");
         $(".jumbotron").css("background-size","cover");
       }
-
-      // $scope.vm = {
-      //     currentImagesIndex: 0,
-      //     images: [{url:'https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle1.png?alt=media&token=7ebdc95d-ee6c-494a-be9f-9df871c1c7bc',orientation:''}],
-      //     currentImgSrc: 'https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle1.png?alt=media&token=7ebdc95d-ee6c-494a-be9f-9df871c1c7bc',
-      //     loadImage: function () {
-      //         this.currentImgSrc = this.images[this.currentImagesIndex].url;
-      //     },
-      //     navigateNext: function () {
-      //         this.currentImagesIndex++;
-      //         if (this.currentImagesIndex >= this.images.length) {
-      //             this.currentImagesIndex = 0;
-      //         }
-      //         this.loadImage();
-      //     },
-      //     navigatePrevious: function () {
-      //         this.currentImagesIndex--;
-      //         if (this.currentImagesIndex <= 0) {
-      //             this.currentImagesIndex = 0;
-      //         }
-      //         this.loadImage();
-      //     }
-      // };
-      // $scope.vm.loadImage();
-
-
 
 
       $scope.featured = [
@@ -153,31 +117,6 @@ app.directive('dynFbCommentBox', function () {
         }
     };
 });
-
-// app.directive('myFbCommentBox', function () {
-//     function createHTML(href, numposts, colorscheme) {
-//         return '<div class="fb-comments" ' +
-//                        'data-href="' + href + '" ' +
-//                        'data-numposts="' + numposts + '" ' +
-//                        'data-colorsheme="' + colorscheme + '">' +
-//                '</div>';
-//     }
-//
-//     return {
-//         restrict: 'A',
-//         scope: {},
-//         link: function postLink(scope, elem, attrs) {
-//             attrs.$observe('pageHref', function (newValue) {
-//                 var href        = newValue;
-//                 var numposts    = attrs.numposts    || 5;
-//                 var colorscheme = attrs.colorscheme || 'light';
-//
-//                 elem.html(createHTML(href, numposts, colorscheme));
-//                 FB.XFBML.parse(elem[0]);
-//             });
-//         }
-//     };
-// });
 
 // TODO: uncomment when ready
 // function initMap() {
