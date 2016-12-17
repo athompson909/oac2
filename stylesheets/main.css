@@ -70,26 +70,54 @@ header nav {
   margin: 0;
   padding: 72px 0 0 0;
   font-family: 'Permanent Marker', cursive;
+  text-shadow: 0px 0px 6px #100900;
   font-style: italic;
   font-weight: bold;
-  height: 600px;
   box-shadow: 0 2px 4px -2px #3b3a35;
-  background: url('https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/jumbotron1.png?alt=media&token=b4f77735-e146-4e53-96eb-b5e358bc25a0');
+  background: url('https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/jumbotron1.png?alt=media&token=b4f77735-e146-4e53-96eb-b5e358bc25a0') no-repeat center center;
   background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  height: 510px;
 }
 
-#jumbo-title {
-  color: #ffffff;
+#jumbo-top {
+  height: 600px;
+}
+
+#jumbo-bottom {
+  height: 400px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#jumbo-contact {
+  height: 500px;
+}
+
+#jumbo-title, #jumbo-title-contact {
+  color: #f6f7f6;
   background-color: rgba(0,0,0,.4);
   width: 100%;
-  margin-top: 260px;
   padding-left: 60px;
 }
 
+#jumbo-title {
+  margin-top: 210px;
+}
+
+#jumbo-top #jumbo-title {
+  margin-top: 260px;
+}
+
+#jumbo-title-contact {
+    margin-top: 190px;
+}
+
 .jumbotron h3 {
-  font-size: 108px;
+  font-size: 84px;
+}
+
+.jumbotron h4 {
+  font-size: 54px;
 }
 
 #main {
@@ -102,12 +130,28 @@ header nav {
 
 /*** THIS IS FOR HOME ***/
 
+/* change this width to affect the whole thing*/
 #main-container {
-  width: 85%;
-  margin: 0 auto;
+  width: 100%;
+  /*margin: 0 auto;*/
+  margin-bottom: -100px;
   padding: 0;
 }
 
+#contact-container {
+  width: 100%;
+  min-height: 400px;
+  padding: 0;
+}
+
+.image-row {
+  width: 98%;
+  margin: 0 auto;
+}
+
+.rtest .col-sm-4 {
+  padding: 14px;
+}
 
 #main-container img {
   width: 100%;
@@ -131,8 +175,13 @@ header nav {
 
 #main-container a h3 {
     line-height: 26px;
-    color: #100900;
+    /*color: #100900;*/
+    color: #f6f7f6;
+    background-color: rgba(0,0,0,.4);
     text-decoration: none;
+    position: relative;
+    top: -120px;
+    padding: 12px 6px;
 }
 
 #main-container a:hover {
@@ -143,14 +192,21 @@ header nav {
 }
 
 #main-container a h3:hover {
-  color: #20457c;
-  transition: color 1s ease;
+  /*color: #20457c;*/
+  /*transition: color 1s ease;*/
 }
 
-#r2 p {
+.move-up {
+  position: relative;
+  top: -60px;
+}
+
+.r2 p {
   font-size: 16px;
   font-style: italic;
 }
+
+
 
 .p-opensans {
   font-size: 19px;
@@ -170,21 +226,45 @@ header nav {
   border-color: #100900
 }
 
+#about-us-bg {
+  width: 100%;
+  /*background-color: #ccc;*/
+}
+
 #about-us {
   margin: 0 auto;
-  width: 90%;
+  width: 75%;
+  padding: 12px 30px;
+  box-shadow: 0px 0px 16px #ccc;
+  background-color: #ccc;
+  color: rgba(16,9,0);
 }
 
 .title-div-big {
+
   vertical-align: middle;
   font-family: 'Permanent Marker', cursive;
   font-size: 54px;
+  color: rgba(16,9,0);
 }
+
+/*.title-div-big .col-sm-12 {
+  padding: 0;
+}*/
 
 .title-div {
   vertical-align: middle;
   font-family: 'Permanent Marker', cursive;
+  /*text-shadow: 0px 0px 6px #100900;*/
+  color: #3b3a35;
   font-size: 36px;
+}
+
+.title-div-pm {
+  vertical-align: middle;
+  font-family: 'Permanent Marker', cursive;
+  text-shadow: 0px 0px 14px #100900;
+  font-size: 30px;
 }
 
 .main-line {
@@ -240,6 +320,55 @@ footer {
   background-color: #ffffff;
   padding: 0;
   margin: 0;
+  position: relative;
+  bottom: 0;
+}
+
+#frightnav img:hover {
+  /*bottom: 4px;*/
+  -webkit-animation-name: slideupward; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: .3s; /* Safari 4.0 - 8.0 */
+  animation-name: slideupward;
+  animation-duration: .3s;
+  bottom: 4px;
+}
+
+/* when coming off */
+#frightnav img:not( :hover ) {
+  -webkit-animation-name: slidedownward; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: .3s; /* Safari 4.0 - 8.0 */
+  animation-name: slidedownward;
+  animation-duration: .3s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes slideupward {
+    0% {bottom: 0px;}
+    100% {bottom: 4px;}
+}
+
+/* Standard syntax */
+@keyframes slideupward {
+    0% {bottom: 0px;}
+    100% {bottom: 4px;}
+}
+
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes slidedownward {
+    0% {bottom: 4px;}
+    100% {bottom: 0px;}
+}
+
+/* Standard syntax */
+@keyframes slidedownward {
+    0% {bottom: 4px;}
+    100% {bottom: 0px;}
+}
+
+
+footer {
+  box-shadow: 0px 0px 4px #3b3a35;
 }
 
 footer a, footer a:hover, footer a:visited, footer a:link {
