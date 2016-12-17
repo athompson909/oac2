@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -29,7 +28,7 @@
   <script src="js/gear_rev_ctrl.js"></script>
   <script src="js/home_ctrl.js"></script>
   <script src="js/survival_ctrl.js"></script>
-  <script src="js/contact.js"></script>
+  <script src="js/contact_ctrl.js"></script>
 
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -43,6 +42,16 @@
   <!-- <link href="https://fonts.googleapis.com/css?family=Arvo|Bree+Serif|Cabin|Permanent+Marker|Voltaire" rel="stylesheet"> -->
 
 <body>
+<div id="fb-root"></div>
+<!-- <script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script> -->
 
 <div ng-app="OutdoorAdvCrew">
 
@@ -176,6 +185,7 @@
   </script>
 
   <script type="text/ng-template" id="/blog.html">
+
     <section class="jumbotron">
       <div class="container" id="jumbo-title">
         <div class="row">
@@ -206,7 +216,7 @@
           <div class="col-sm-4">
             <div class="top-spacing"></div>
             <hr>
-            <div class="text-center sidebar-title-div">Featured</div><hr>
+            <div class="text-center sidebar-title-div">Featured Articles</div><hr>
             <div class="sidebar-featured">
               <div ng-repeat="article in featured">
                 <div class="row">
@@ -412,7 +422,18 @@
         <div class="row">
           <div class="col-sm-12" id="comment">
             <h3>COMMENTS</h3>
-            <div class="fb-comments" data-href="file:///Users/adamthompson/Documents/personal/oac/articles/09172016yankeedoodlecanyon.html" data-numposts="5"></div>
+            <!-- <div class="fb-comments" data-href="http://www.adamcthompson.com/oac/index.html#/article?id=0" data-numposts="5"></div> -->
+            <!-- <div class="fb-comments" data-href="http://www.outdooradventurecrew.com" data-width="600px" data-numposts="5"></div> -->
+            <!-- <div id="fb-comment-box" dyn-fb-comment-box
+                    page-href="http://www.adamcthompson.com/oac/index.html#/article?id={{id}}";
+                    numposts="5"
+                    colorscheme="light">
+            </div> -->
+            <div class="fb-comments"
+                dyn-fb-comment-box
+                page-href="http://www.adamcthompson.com/oac/index.html#/article?id={{id}}"
+                data-numposts="5">
+            </div>
           </div>
         </div>
       </section>
@@ -509,7 +530,7 @@
       </div>
       <div class="col-sm-6 text-right" id="frightnav">
       <a id="promote" href="#/promote">FOLLOW US! </a>
-        <a href="https://www.instagram.com/outdooradventurecrew/"><img src="images/socialmedia/instagram.png"></a><a href="#"><img src="images/socialmedia/facebook.png"></a><a href="#"><img src="images/socialmedia/youtube.png"></a><a href="#"><img src="images/socialmedia/vimeo.png"></a><a href="#"><img src="images/socialmedia/pinterest.png"></a><a href="#"><img src="images/socialmedia/flickr.png"></a><a href="#"><img src="images/socialmedia/tumblr.png"></a>
+      <a href="https://www.instagram.com/outdooradventurecrew/"><img src="images/socialmedia/instagram.png"></a><a href="https://www.facebook.com/outdooradventurecrew"><img src="images/socialmedia/facebook.png"></a><a href="#"><img src="images/socialmedia/youtube.png"></a><a href="#"><img src="images/socialmedia/vimeo.png"></a><a href="#"><img src="images/socialmedia/pinterest.png"></a><a href="#"><img src="images/socialmedia/flickr.png"></a><a href="#"><img src="images/socialmedia/tumblr.png"></a>
       </div>
     </div>
     <hr>

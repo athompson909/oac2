@@ -153,18 +153,24 @@ header nav {
   padding: 14px;
 }
 
-#main-container img {
+.rtest .col-sm-4 img {
   width: 100%;
   box-shadow: 0px 0px 4px #3b3a35;
   transition: all .6s ease;
   -webkit-transition: all .6s ease;
 }
 
-#main-container img:hover {
+.rtest .col-sm-4 a:hover img {
   filter: brightness(75%);
   transition: all .6s ease;
   -webkit-transition: all .6s ease;
 }
+
+/*#main-container img:hover {
+  filter: brightness(75%);
+  transition: all .6s ease;
+  -webkit-transition: all .6s ease;
+}*/
 
 #main-container img:
 

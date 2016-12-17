@@ -1,14 +1,40 @@
 var lat, lng;
 
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '156803834800667',
+    xfbml      : true,
+    version    : 'v2.8'
+  });
+};
+
+(function(d, s, id){
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement(s); js.id = id;
+   js.src = "https://connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));
+
+// window.FB = {
+//     XFBML: {
+//         parse: function (elem) {
+//             // var pre = document.createElement('pre');
+//             // pre.textContent = elem.innerHTML;
+//             // document.getElementById('fb-comment-box').innerHTML = pre.outerHTML;
+//         }
+//     }
+// };
+
 app.controller('ArticleCtrl', [
     '$scope',
     'factory',
     '$http',
     function($scope, factory, $http) {
       $scope.article = {};
+      $scope.id = getParameterByName('id', null);
       $scope.getArticle = function() {
-        var id = getParameterByName('id', null);
-
+        var id = $scope.id;
         console.log('id: '+id);
 
         var ref = firebase.database().ref().child('articles').child(id);
@@ -21,8 +47,9 @@ app.controller('ArticleCtrl', [
             $scope.article,
             // $scope.vm,
             $scope.rotateIfPortrait(),
-            $scope.setBackgroundImage(),
-            initMap(); // this doesn't do anything!
+            $scope.setBackgroundImage()
+
+            // initMap(); // this doesn't do anything!
           });
           // $scope.vm.loadImage();
         });
@@ -100,29 +127,68 @@ app.controller('ArticleCtrl', [
     }
 ]);
 
-function initMap() {
-  var site = {lat: 37.236917, lng: -113.453889};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
-    center: site
-  });
-  var marker = new google.maps.Marker({
-    position: site,
-    map: map
-  });
-}
+app.directive('dynFbCommentBox', function () {
+    function createHTML(href, numposts, colorscheme, width) {
+        return '<div class="fb-comments" ' +
+                       'data-href="' + href + '" ' +
+                       'data-numposts="' + numposts + '" ' +
+                       'data-colorsheme="' + colorscheme + '" ' +
+                       'data-width="' + width + '">' +
+               '</div>';
+    }
 
 
-// function getArticle() {
-//   var id = getParameterByName('id', null);
+    return {
+        restrict: 'A',
+        scope: {},
+        link: function postLink(scope, elem, attrs) {
+            attrs.$observe('pageHref', function (newValue) {
+                var href        = newValue;
+                var numposts    = attrs.numposts    || 5;
+                var colorscheme = attrs.colorscheme || 'light';
+                var width = attrs.width || '100%';
+                elem.html(createHTML(href, numposts, colorscheme, width));
+                FB.XFBML.parse(elem[0]);
+            });
+        }
+    };
+});
+
+// app.directive('myFbCommentBox', function () {
+//     function createHTML(href, numposts, colorscheme) {
+//         return '<div class="fb-comments" ' +
+//                        'data-href="' + href + '" ' +
+//                        'data-numposts="' + numposts + '" ' +
+//                        'data-colorsheme="' + colorscheme + '">' +
+//                '</div>';
+//     }
 //
-//   console.log('id: '+id);
+//     return {
+//         restrict: 'A',
+//         scope: {},
+//         link: function postLink(scope, elem, attrs) {
+//             attrs.$observe('pageHref', function (newValue) {
+//                 var href        = newValue;
+//                 var numposts    = attrs.numposts    || 5;
+//                 var colorscheme = attrs.colorscheme || 'light';
 //
-//   var ref = firebase.database().ref().child('articles').child(id);
-//   console.log('ref: '+ref);
-//   ref.once('value').then(function(obj) {
-//     console.log(obj.val());
-//     return obj.val();
+//                 elem.html(createHTML(href, numposts, colorscheme));
+//                 FB.XFBML.parse(elem[0]);
+//             });
+//         }
+//     };
+// });
+
+// TODO: uncomment when ready
+// function initMap() {
+//   var site = {lat: 37.236917, lng: -113.453889};
+//   var map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 15,
+//     center: site
+//   });
+//   var marker = new google.maps.Marker({
+//     position: site,
+//     map: map
 //   });
 // }
 
