@@ -3,7 +3,7 @@ function scrollToTop() {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
-var app = angular.module('OutdoorAdvCrew', ['ui.router'])
+var app = angular.module('OutdoorAdvCrew', ['ui.router', 'ngSanitize'])
 .factory('factory', [function() {
     var o = {
         displayvalue: []
@@ -45,6 +45,11 @@ app.config([
                 url: '/survival',
                 templateUrl: '/survival.html',
                 controller: 'SurvivalCtrl'
+            })
+            .state('contact', {
+                url: '/contact',
+                templateUrl: '/contact.html',
+                controller: 'ContactCtrl'
             })
         $urlRouterProvider.otherwise('home');
     }

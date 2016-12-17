@@ -1,6 +1,8 @@
 
 <!DOCTYPE html>
 <html>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
   <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
   <script>
     // Initialize Firebase
@@ -15,7 +17,7 @@
   </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script>
   <script src="https://angular-ui.github.com/ui-router/release/angular-ui-router.js"></script>
 
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -27,6 +29,7 @@
   <script src="js/gear_rev_ctrl.js"></script>
   <script src="js/home_ctrl.js"></script>
   <script src="js/survival_ctrl.js"></script>
+  <script src="js/contact.js"></script>
 
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -34,6 +37,7 @@
   <link rel="stylesheet" href="stylesheets/advlog.css">
   <link rel="stylesheet" href="stylesheets/article.css">
   <link rel="stylesheet" href="stylesheets/overlay.css">
+  <link rel="stylesheet" href="stylesheets/gallery.css">
 
   <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans|Permanent+Marker|Russo+One" rel="stylesheet">
   <!-- <link href="https://fonts.googleapis.com/css?family=Arvo|Bree+Serif|Cabin|Permanent+Marker|Voltaire" rel="stylesheet"> -->
@@ -78,7 +82,7 @@
       </div>
     </div>
 
-    <section class="jumbotron">
+    <section class="jumbotron" id="jumbo-top">
       <div class="container" id="jumbo-title">
         <div class="row">
           <h2>{{jumbotronWelcome}}</h2>
@@ -88,84 +92,84 @@
     </section>
     <div id="main">
       <section class="container" id="main-container">
-        <div class="row title-div-big"><div class="col-sm-12 text-center"><br>- ABOUT US -</div></div>
-        <div class="row" id="about-us" style="font-size: 42px">
-          <div class="col-sm-12 text-left">
-            <hr>
-            <p class="p-bree"><span>Welcome to our site! We are the Outdoor Adventure Crew, a group of friends that loves being outdoors, experiencing the world around us, and inspiring others to do the same.</span></p>
-            <p class="p-opensans">Our goal is to help people understand that adventure is a state of mind not a destination, and that as such does not have to be expensive or extravagant. We want people to realize that you do not have to be a travel blogger, a mountain man or live out of a van to reap the benefits of the outdoors. YOU the student, the parent, the worker with a 9-5, the human, have a right to live life to it\’s fullest, to explore the world around you, and to appreciate the beauty that surrounds us every day. Join us as we attempt to do the same, as we find beauty in our backyard and in turn find ourselves.</p>
-            <br>
-            <p class="p-opensans-italic" style="margin-left:40px">“We do not adventure to escape life, we adventure so that life does not escape us”</p>
-            <p class="p-bree" style="margin-left:80px">-The Crew</p>
-            <hr>
+
+        <div class="row title-div"><div class="col-sm-12 text-center"><br>- OUR MOST RECENT ENTRIES -</div></div>
+        <br>
+        <div class="row r2 rtest image-row">
+          <div class="col-sm-4">
+            <a href="{{advlog.link}}" onclick="scrollToTop()">
+              <div class="text-center">
+                <img src="{{advlog.image}}">
+                <h3 class='title-div-pm'>{{advlog.title}}</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-4">
+            <a href="{{gearrev.link}}" onclick="scrollToTop()">
+              <div class="text-center">
+                <img src="{{gearrev.image}}">
+                <h3 class='title-div-pm'>{{gearrev.title}}</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm-4">
+            <a href="{{survtip.link}}" onclick="scrollToTop()">
+              <div class="text-center">
+                <img src="{{survtip.image}}">
+                <h3 class='title-div-pm'>{{survtip.title}}</h3>
+              </div>
+            </a>
           </div>
         </div>
 
-
-        <div id="r2">
-          <div class="row title-div"><div class="col-sm-12 text-center"><br>- THE MOST RECENT -</div></div>
-          <br>
-          <div class="row">
-            <div class="col-sm-4">
-              <a href="{{advlog.link}}" onclick="scrollToTop()"><div class="text-center">
-                <img src="{{advlog.image}}"><br>
-                <h3 class='title-bree'>{{advlog.title}}</h3>
-              </div></a>
+        <div class="move-up" id="about-us-bg">
+          <div class="row" id="about-us" style="font-size: 42px">
+            <div class="col-sm-12 text-left">
               <hr>
-              <p>{{advlog.intro}}</p>
-            </div>
-            <div class="col-sm-4">
-              <a href="{{gearrev.link}}" onclick="scrollToTop()"><div class="text-center">
-                <img src="{{gearrev.image}}"><br>
-                <h3 class='title-bree'>{{gearrev.title}}</h3>
-              </div></a>
+              <div class="row title-div-big text-center">- ABOUT US -</div>
               <hr>
-              <p>{{gearrev.intro}}</p>
-            </div>
-            <div class="col-sm-4">
-              <a href="{{survtip.link}}" onclick="scrollToTop()"><div class="text-center">
-                <img src="{{survtip.image}}"><br>
-                <h3 class='title-bree'>{{survtip.title}}</h3>
-                <hr>
-              </div></a>
-              <p>{{survtip.intro}}</p>
+              <p class="p-bree"><span>Welcome to our site! We are the Outdoor Adventure Crew, a group of friends that loves being outdoors, experiencing the world around us, and inspiring others to do the same.</span></p>
+              <p class="p-opensans">Our goal is to help people understand that adventure is a state of mind not a destination, and that as such does not have to be expensive or extravagant. We want people to realize that you do not have to be a travel blogger, a mountain man or live out of a van to reap the benefits of the outdoors. YOU the student, the parent, the worker with a 9-5, the human, have a right to live life to it’s fullest, to explore the world around you, and to appreciate the beauty that surrounds us every day. Join us as we attempt to do the same, as we find beauty in our backyard and in turn find ourselves.</p>
+              <br>
+              <p class="p-opensans-italic" style="margin-left:40px">“We do not adventure to escape life, we adventure so that life does not escape us”</p>
+              <p class="p-bree" style="margin-left:80px">-The Crew</p>
+              <hr>
             </div>
           </div>
-
-          <div class="row"><div class="col-sm-12 text-left"></div><hr></div>
-
-          <div class="row title-div"><div class="col-sm-12 text-center"><br>- FEATURED BLOG ENTRIES -</div></div>
-          <br>
-          <div class="row">
-            <div class="col-sm-4">
-              <a href="{{blog1.link}}" onclick="scrollToTop()"><div class="text-center">
-                <img src="{{blog1.image}}"><br>
-                <h3 class='title-bree'>{{blog1.title}}</h3>
-              </div></a>
-              <hr>
-              <p>{{blog1.intro}}</p>
-            </div>
-            <div class="col-sm-4">
-              <a href="{{blog2.link}}"><div class="text-center">
-                <img src="{{blog2.image}}" onclick="scrollToTop()"><br>
-                <h3 class='title-bree'>{{blog2.title}}</h3>
-              </div></a>
-              <hr>
-              <p>{{blog2.intro}}</p>
-            </div>
-            <div class="col-sm-4">
-              <a href="{{blog3.link}}" onclick="scrollToTop()"><div class="text-center">
-                <img src="{{blog3.image}}"><br>
-                <h3 class='title-bree'>{{blog3.title}}</h3>
-              </div></a>
-              <hr>
-              <p>{{blog3.intro}}</p>
-            </div>
-            <hr>
-          </div>
-
-          <div class="row"><div class="col-sm-12 text-left"></div><hr></div>
         </div>
+
+        <div class="move-up">
+          <div class="row title-div"><div class="col-sm-12 text-center"><br>- FEATURED BLOG ARTICLES -</div></div>
+          <br>
+          <div class="row r2 rtest image-row">
+            <div class="col-sm-4">
+              <a href="{{blog1.link}}" onclick="scrollToTop()">
+                <div class="text-center">
+                  <img src="{{blog1.image}}">
+                  <h3 class='title-div-pm'>{{blog1.title}}</h3>
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a href="{{blog2.link}}" onclick="scrollToTop()">
+                <div class="text-center">
+                  <img src="{{blog2.image}}">
+                  <h3 class='title-div-pm'>{{blog2.title}}</h3>
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-4">
+              <a href="{{blog2.link}}" onclick="scrollToTop()">
+                <div class="text-center">
+                  <img src="{{blog2.image}}">
+                  <h3 class='title-div-pm'>{{blog2.title}}</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="row"><div class="col-sm-12 text-left"></div><hr></div> -->
         <br><br>
       </section>
     </div>
@@ -185,7 +189,7 @@
 
           <div class="col-sm-8 main-blog">
             <div class="main-blog-body">
-              <div class="row title-div text-center">{{innerTitle}}</div><hr><br><br>
+              <div class="row title-div-big text-center">{{innerTitle}}</div><hr><br><br>
 
                 <div ng-repeat="article in articles">
                   <a href="{{article.link}}" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a><br><br>
@@ -305,69 +309,117 @@
   </script>
 
   <script type="text/ng-template" id="/article.html">
-    <div id="main">
-      <div class="top-spacing"></div>
-      <section class="container-fluid" id="main-container-blog">
-      <div class="row">
 
-        <div class="col-sm-9 main-article">
-          <div id="main-article-body">
-            <div class="row title-div title-div-article text-center">{{artTitle}}</div><br><br>
-              <div class="text-left">
-                <h3>{{getDateAsString()}}</h3>
+    <section class="jumbotron">
+      <div class="container" id="jumbo-title">
+        <div class="row">
+          <h3>{{article.jumbotronTitle}}</h3>
+          <h2>Date: {{article.date}}, Logged by: {{article.loggedBy}}</h2>
+        </div>
+      </div>
+    </section>
+    <div id="main">
+      <section class="container-fluid" id="main-container-blog">
+        <div class="row">
+
+          <div class="col-sm-8 main-blog">
+            <div class="main-blog-body">
+              <!-- <div class="article-header">
+                <p><span>Date: </span>9/17/2016</p>
+                <p><span>Logged by: </span>Kimberly Jackson</p>
+              </div> -->
+              <hr>
+              <div class="row title-div-article text-center">Quick Stats:</div>
+              <hr><br>
+                <p><span>Days: </span>{{article.days}}</p>
+                <p><span>Nights: </span>{{article.nights}}</p>
+                <p><span>Where we camped: </span>{{article.whereWeCamped}}</p>
+                <p><span>Trails we Hiked: </span>{{article.trailsWeHiked}}</p>
+                <p><span>Miles Hiked: </span>{{article.milesHiked}}</p>
+                <p><span>Permits needed: </span>{{article.permitsNeeded}}</p>
+                <p><span>Suggested time of year: </span>{{article.suggestedTimeOfYear}}</p>
+                <p><span>Gear Rating: </span>{{article.gearRating}}</p>
+                <p><span>Difficulty: </span>{{article.difficulty}}</p>
+                <p><span>Enjoyability: </span>{{article.enjoyability}}</p>
+              <br><hr>
+              <div class="row title-div-article text-center">Log:</div>
+              <hr><br>
+              <div class="article-content" ng-bind-html="article.articleContent"></div>
+              <br>
+            </div>
+          </div>
+
+
+          <div class="col-sm-4">
+            <div class="top-spacing"></div>
+            <hr>
+            <div class="text-center"><p class="sidebar-title-div-bree">Photo Gallery</p></div><hr>
+            <div ng-repeat="i in [1,3,5,7]" class="sidebar-image">
+              <div class="row">
+                <div class="col-sm-6">
+                  <a href="{{article.images[i].url}}"><img src="{{article.images[i].url}}"></a>
+                </div>
+                <div class="col-sm-6">
+                  <a href="{{article.images[i+1].url}}"><img src="{{article.images[i+1].url}}"></a>
+                </div>
               </div>
-              <div class ng-bind-html="artBody"></div>
+            </div>
+            <br>
+
+
+            <hr>
+            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISMENT]</a></div>
+            <hr>
+
+            <hr>
+            <div class="text-center"><p class="sidebar-title-div-bree">Featured Articles</p></div>
+            <hr>
+
+            <div class="sidebar-featured">
+              <div ng-repeat="article in featured">
+                <div class="row">
+
+                  <div class="col-sm-2 sidebar-article-part1">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a><br><br>
+                  </div>
+                  <div class="col-sm-2 sidebar-article-part2">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><p class="sidebar-article-title">{{article.title}}</p></a>
+                    <p class="sidebar-article-date">{{article.date}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <hr>
+            <p class="sidebar-title-bree">Where We Camped</p>
+            <div id="map"></div>
+
+
+            <!-- ui factory leaves the DOM to being parsed incorrectly from this point: -->
+            <!-- placeholder for map -->
+
+            <!-- <script></script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuLNTDb1E1WRrKcLL5oQvXFHCQsDCBFg8&callback=initMap">
+            </script> -->
             <br><br><br>
           </div>
         </div>
-
-        <div class="col-sm-3">
-          <div class="top-spacing"></div>
-          <!-- <div class="sidebar-content-blog">
-            <div class="text-center sidebar-title-div-big"><a href="#">ALL ENTRIES</a></div>
-            <div class="main-line"></div>
-            <div class="text-center sidebar-title-div-small"><a href="#">CLICK HERE TO SEE ALL</a></div>
-            <div class="main-line"></div>
-
-            <div class="text-center sidebar-title-div "><em>OR,</em> VIEW BY MONTH</div>
-            <div class="sidebar-border-article text-center">
-              <div ng-repeat="month in getMonthsArray()" class="sidebar-title-div">
-                <a href=""><div id="month">{{month}} 2016</div></a>
-              </div>
-              <div class="main-line"></div>
-              <a href="" class="sidebar-title-div-small">OVER 8 MONTHS AGO</a>
-             </div>
-          </div>
-          <br><br><br> -->
-          <div class="main-line"></div>
-          <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISMENT]</a></div>
-          <div class="main-line"></div>
-
-
-        </div>
-      </div>
-
-
-      <div class="line-white"></div>
       </section>
+
       <section class="container">
         <div class="row">
           <div class="col-sm-12" id="comment">
             <h3>COMMENTS</h3>
-            <div class="fb-comments" data-href="http://ec2-52-43-242-238.us-west-2.compute.amazonaws.com:3010/#/article?id=x" data-numposts="5" data-width="800"></div>
+            <div class="fb-comments" data-href="file:///Users/adamthompson/Documents/personal/oac/articles/09172016yankeedoodlecanyon.html" data-numposts="5"></div>
           </div>
         </div>
       </section>
+      <!-- to right here -->
 
     </div>
   </script>
-
-  <!-- <div class="row">
-    <div class="col-sm-12" id="comment">
-      <h3>COMMENTS</h3>
-      <input type="text" name="Enter a comment" id="comment-box">
-    </div>
-  </div> -->
 
 
   <script type="text/ng-template" id="/survival.html">
@@ -427,6 +479,26 @@
     </div>
   </script>
 
+  <script type="text/ng-template" id="/contact.html">
+    <section class="jumbotron" id="jumbo-contact">
+      <div class="container" id="jumbo-title-contact">
+        <div class="row">
+          <h4>Let's get in contact!</h4>
+          <h4>We'd love to hear from you!</h4>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="contact-container">
+
+    </section>
+  </script>
+
+
+
+  <!-- <section class="jumbotron" id="jumbo-bottom">
+  </section> -->
+
   <footer class="container-fluid">
     <div class="row text-center" id="footerrow">
 
@@ -440,7 +512,6 @@
         <a href="https://www.instagram.com/outdooradventurecrew/"><img src="images/socialmedia/instagram.png"></a><a href="#"><img src="images/socialmedia/facebook.png"></a><a href="#"><img src="images/socialmedia/youtube.png"></a><a href="#"><img src="images/socialmedia/vimeo.png"></a><a href="#"><img src="images/socialmedia/pinterest.png"></a><a href="#"><img src="images/socialmedia/flickr.png"></a><a href="#"><img src="images/socialmedia/tumblr.png"></a>
       </div>
     </div>
-    <!-- <div class="line"></div> -->
     <hr>
     <div class="col-sm-12 text-center" id="copyright">Copyright &copy 2016 | Outdoor Adventure Crew | this site developed and maintained by Adam Thompson</div>
   </footer>

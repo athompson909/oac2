@@ -183,29 +183,29 @@ app.controller('ArticleCtrl', [
     'factory',
     '$http',
     function($scope, factory, $http) {
-      // console.log("in article ctrl");
-      // var idQuery = getParameterByName("id", null);//null means this url
-      // console.log(idQuery);
-      //
-      // $scope.artTitle = '';
-      // $scope.artBody = '';
-      // $scope.artImages = [];
-      // $scope.getArticle = function() {
-      //   $http.get('../getarticle?id='+idQuery)
-      //   .then(function(response) {
-      //     console.log('success');
-      //     console.log(response.data)
-      //     $scope.artTitle = response.data.title;
-      //     $scope.artBody = response.data.body;
-      //     $scope.artImages = response.data.images;
-      //
-      //   });
-      // }
-      // $scope.getArticle();
-      //
-      // $scope.getMonthsArray = function() {
-      //   return getMonthsArray();
-      // };
+      console.log("in article ctrl");
+      var idQuery = getParameterByName("id", null);//null means this url
+      console.log(idQuery);
+
+      $scope.artTitle = '';
+      $scope.artBody = '';
+      $scope.artImages = [];
+      $scope.getArticle = function() {
+        $http.get('../getarticle?id='+idQuery)
+        .then(function(response) {
+          console.log('success');
+          console.log(response.data)
+          $scope.artTitle = response.data.title;
+          $scope.artBody = response.data.body;
+          $scope.artImages = response.data.images;
+
+        });
+      }
+      $scope.getArticle();
+
+      $scope.getMonthsArray = function() {
+        return getMonthsArray();
+      };
     }
 ]);
 
