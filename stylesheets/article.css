@@ -24,10 +24,25 @@
   box-shadow: 0px 0px 12px #3b3a35;
 }
 
+.center-pic img {
+  width: 60%;
+}
+
+.side-pic img {
+  width: 35%;
+}
+
+.inner-article-title-bree, .sidebar-title-bree {
+  font-family: 'Bree Serif', serif;
+}
 
 .sidebar-title-bree {
-  font-family: 'Bree Serif', serif;
   font-size: 26px;
+}
+
+.inner-article-title-bree {
+  margin-bottom: 6px;
+  font-size: 23px;
 }
 
 .sidebar-image {
@@ -67,7 +82,7 @@
 
 .main-blog span {
   font-family: 'Bree Serif', serif;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .main-blog {

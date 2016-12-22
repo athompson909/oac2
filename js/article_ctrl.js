@@ -1,10 +1,13 @@
-var lat, lng;
+var lat = 37.236917,
+    lng = -113.453889;
+
+var site = {lat: lat, lng: lng};
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '156803834800667',
-    xfbml      : true,
-    version    : 'v2.8'
+    appId: '156803834800667',
+    xfbml: true,
+    version: 'v2.8'
   });
 };
 
@@ -36,7 +39,6 @@ app.controller('ArticleCtrl', [
           $scope.$apply(function() {
             $scope.article,
             // $scope.vm,
-            $scope.rotateIfPortrait(),
             $scope.setBackgroundImage()
 
             // initMap(); // this doesn't do anything!
@@ -70,21 +72,21 @@ app.controller('ArticleCtrl', [
           title: "Rappelling Through Yankee Doodle Canyon",
           intro: "It all started late one night, near a middle-of-nowhere town called Leeds, UT. The sleepy town was well past its own bedtime. That didn’t stop a meet up of the best adventure crew around.",
           link: "#/article?id=0",
-          imageSrc: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle1.png?alt=media&token=7ebdc95d-ee6c-494a-be9f-9df871c1c7bc",
+          imageSrc: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
           date: "August 30th, 2016"
         },
         {
-          title: "An Afternoon in Capitol Reef",
-          intro: "Nothing like deciding on a last minute trip from memorial day, we left at 1:00 in the afternoon and arrived by 4:00, to Utah's probably least-known national park.",
+          title: "Yellowstone",
+          intro: "Yellowstone made the perfect end to a great summer of adventures for our crew.  We were all really excited for this last hurrah before the school year started.",
           link: "#/article?id=1",
-          imageSrc: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/capitolreef1.png?alt=media&token=2aa160d6-47e5-4969-8476-015aa3c27b4c",
+          imageSrc: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
           date: "June 24, 2016"
         },
         {
           title: "Diamond Fork Canyon",
           intro: "What an incredible sunset.",
           link: "#/article?id=2",
-          imageSrc: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/sfhotpots.png?alt=media&token=928713db-3960-466d-9137-d44b0f85a92f",
+          imageSrc: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
           date: "June 1st, 2016"
         }
       ];
@@ -118,19 +120,6 @@ app.directive('dynFbCommentBox', function () {
     };
 });
 
-// TODO: uncomment when ready
-// function initMap() {
-//   var site = {lat: 37.236917, lng: -113.453889};
-//   var map = new google.maps.Map(document.getElementById('map'), {
-//     zoom: 15,
-//     center: site
-//   });
-//   var marker = new google.maps.Marker({
-//     position: site,
-//     map: map
-//   });
-// }
-
 function getParameterByName(name, url) {
     if (!url) {
       url = window.location.href;
@@ -142,3 +131,51 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+
+app.directive("appMap", function () {
+    return {
+        restrict: "E",
+        replace: true,
+        template: "<div></div>",
+        link: function (scope, element, attrs) {
+            var toResize, toCenter;
+            var map;
+            var currentMarkers;
+
+            updateControl();
+
+            // update zoom and center without re-creating the map
+            scope.$watch("zoom", function () {
+                if (map && scope.zoom)
+                    map.setZoom(scope.zoom * 1);
+            });
+
+            scope.$watch("center", function () {
+                if (map && scope.center)
+                    map.setCenter(getLocation(scope.center));
+            });
+
+            // update the control
+            function updateControl() {
+                // get map options
+                var options = {
+                    center: new google.maps.LatLng(site.lat, site.lng),
+                    zoom: 15
+                };
+
+                // create the map
+                map = new google.maps.Map(element[0], options);
+                var marker = new google.maps.Marker({position: site, map: map});
+
+            }
+
+            // convert current location to Google maps location
+            function getLocation(loc) {
+                if (loc == null) return new google.maps.LatLng(40, -73);
+                if (angular.isString(loc)) loc = scope.$eval(loc);
+                return new google.maps.LatLng(loc.lat, loc.lon);
+            }
+        }
+    };
+});
