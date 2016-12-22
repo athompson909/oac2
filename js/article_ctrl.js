@@ -1,6 +1,8 @@
 var lat = 37.236917,
     lng = -113.453889;
 
+var id = getParameterByName('id', null);
+
 var site = {lat: lat, lng: lng};
 
 window.fbAsyncInit = function() {
@@ -27,69 +29,30 @@ app.controller('ArticleCtrl', [
       $scope.article = {};
       $scope.id = getParameterByName('id', null);
       $scope.getArticle = function() {
-        var id = $scope.id;
         console.log('id: '+id);
 
         var ref = firebase.database().ref().child('articles').child(id);
-        console.log('ref: '+ref);
         ref.once('value').then(function(obj) {
-          console.log(obj.val());
           $scope.article = obj.val();
-          // $scope.vm.images = obj.val().images;
           $scope.$apply(function() {
             $scope.article,
-            // $scope.vm,
             $scope.setBackgroundImage()
-
-            // initMap(); // this doesn't do anything!
           });
-          // $scope.vm.loadImage();
         });
       }
       $scope.getArticle();
 
-      console.log($scope.article);
-
-      $scope.rotateIfPortrait = function(orientation) {
-        console.log("img orientation: "+orientation);
-        if(orientation == "portrait") {
-          return "-ms-transform: rotate(90deg);"+
-          "-webkit-transform: rotate(90deg);"+
-          "transform: rotate(90deg);"+
-          "position: relative; height: auto; width: 100%; margin-top: 120px;";
-        }
-        else return "position: relative; height: auto; width: 100%;";
-      }
+      $scope.featured = [];
+      var ref2 = firebase.database().ref().child('featured');
+      ref2.once('value').then(function(obj) {
+        $scope.featured = obj.val();
+        $scope.$apply(function() {$scope.featured});
+      });
 
       $scope.setBackgroundImage = function() {
         $(".jumbotron").css("background","url('"+$scope.article.jumbotronImageUrl+"') no-repeat center center");
         $(".jumbotron").css("background-size","cover");
       }
-
-
-      $scope.featured = [
-        {
-          title: "Rappelling Through Yankee Doodle Canyon",
-          intro: "It all started late one night, near a middle-of-nowhere town called Leeds, UT. The sleepy town was well past its own bedtime. That didn’t stop a meet up of the best adventure crew around.",
-          link: "#/article?id=0",
-          imageSrc: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
-          date: "August 30th, 2016"
-        },
-        {
-          title: "Yellowstone",
-          intro: "Yellowstone made the perfect end to a great summer of adventures for our crew.  We were all really excited for this last hurrah before the school year started.",
-          link: "#/article?id=1",
-          imageSrc: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
-          date: "June 24, 2016"
-        },
-        {
-          title: "Diamond Fork Canyon",
-          intro: "What an incredible sunset.",
-          link: "#/article?id=2",
-          imageSrc: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
-          date: "June 1st, 2016"
-        }
-      ];
     }
 ]);
 
@@ -143,7 +106,21 @@ app.directive("appMap", function () {
             var map;
             var currentMarkers;
 
+            scope.center = {lat:0,lng:0};
             updateControl();
+
+
+            var ref = firebase.database().ref().child('articles').child(id).child('mapsPosition');
+            ref.once('value').then(function(obj) {
+              var val = obj.val();
+              console.log(val);
+              scope.center.lat = val.lat;
+              scope.center.lng = val.lng;
+              scope.$apply(function() {
+                scope.center,
+                updateControl()
+              });
+            });
 
             // update zoom and center without re-creating the map
             scope.$watch("zoom", function () {
@@ -159,14 +136,15 @@ app.directive("appMap", function () {
             // update the control
             function updateControl() {
                 // get map options
+
                 var options = {
-                    center: new google.maps.LatLng(site.lat, site.lng),
+                    center: new google.maps.LatLng(scope.center.lat, scope.center.lng),
                     zoom: 15
                 };
 
                 // create the map
                 map = new google.maps.Map(element[0], options);
-                var marker = new google.maps.Marker({position: site, map: map});
+                var marker = new google.maps.Marker({position: scope.center, map: map});
 
             }
 
