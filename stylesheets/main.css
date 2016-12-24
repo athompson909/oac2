@@ -73,14 +73,15 @@ header nav {
   text-shadow: 0px 0px 6px #100900;
   font-style: italic;
   font-weight: bold;
-  box-shadow: 0 2px 4px -2px #3b3a35;
-  background: url('https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f') no-repeat center center;
+  box-shadow: 0 2px 8px -2px #3b3a35;
+  background: url('https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/Jumbotron.jpg?alt=media&token=509956ab-9875-46a0-b454-bbd3d18e7843') no-repeat top center;
   background-size: cover;
   height: 510px;
 }
 
 #jumbo-top {
-  height: 600px;
+  /*height: 650px;*/
+  height: 46em;
 }
 
 #jumbo-bottom {
@@ -90,10 +91,11 @@ header nav {
 }
 
 #jumbo-contact {
-  height: 500px;
+  height: 660px;
 }
 
 #jumbo-title, #jumbo-title-contact {
+  /*display: none;*/
   color: #f6f7f6;
   background-color: rgba(0,0,0,.4);
   width: 100%;
@@ -105,19 +107,19 @@ header nav {
 }
 
 #jumbo-top #jumbo-title {
-  margin-top: 260px;
+  margin-top: 420px;
 }
 
 #jumbo-title-contact {
-    margin-top: 190px;
+    margin-top: 360px;
 }
 
 .jumbotron h3 {
-  font-size: 84px;
+  font-size: 72px;
 }
 
 .jumbotron h4 {
-  font-size: 54px;
+  font-size: 86px;
 }
 
 #main {
@@ -215,7 +217,8 @@ header nav {
 
 
 .p-opensans {
-  font-size: 19px;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .p-opensans-italic {
@@ -223,27 +226,39 @@ header nav {
   font-style: italic;
 }
 
-.p-bree {
+.p-opensans-big {
+  font-size: 21px;
+}
+
+.p-bree, #contact-us span {
   font-family: 'Bree Serif', serif;
   font-size: 24px;
 }
 
-#main-container hr {
+#main-container hr, #contact-container hr {
   border-color: #100900
 }
 
-#about-us-bg {
+#contact-container {
+  margin: 60px 0;
+}
+
+#about-us-bg, #contact-us-bg {
   width: 100%;
   /*background-color: #ccc;*/
 }
 
-#about-us {
+#contact-us-bg {
+  margin: 0 0 100px 0;
+}
+
+#about-us, #contact-us {
   margin: 0 auto;
   width: 75%;
   padding: 12px 30px;
-  box-shadow: 0px 0px 16px #ccc;
   background-color: #ccc;
   color: rgba(16,9,0);
+  box-shadow: 0px 0px 16px #ccc;
 }
 
 .title-div-big {
@@ -308,8 +323,8 @@ header nav {
 footer {
   box-shadow: 0 -2px 4px -2px #f6f7f6;
   background-color: #100900;
-  font-family: 'Bree Serif', serif;
   line-height: 28px;
+  font-family: 'Bree Serif', serif;
 }
 
 #footerrow {
@@ -322,10 +337,10 @@ footer {
 }
 
 #frightnav img {
-  width: 28px;
+  width: 36px;
   background-color: #ffffff;
   padding: 0;
-  margin: 0;
+  margin: 1px;
   position: relative;
   bottom: 0;
 }
@@ -375,10 +390,11 @@ footer {
 
 footer {
   box-shadow: 0px 0px 4px #3b3a35;
+  color: #a9b0ac;
 }
 
 footer a, footer a:hover, footer a:visited, footer a:link {
-  color: #a9b0ac;;
+  color: #a9b0ac;
 }
 
 footer a:hover {
@@ -391,19 +407,16 @@ footer a:hover {
 footer hr {}
 
 #fleftnav {
-  font-size: 28px;
-  font-weight: 900;
+  font-size: 30px;
+  /*font-weight: 900;*/
+  line-height: 32px;
 }
 
 #frightnav a {
   margin: 0 2px 0 2px;
   padding: 0;
   /*font-family: 'Permanent Marker', cursive;*/
-  font-size: 32px;
-}
-
-#promote {
-  /*border-bottom: 2px solid #20457c;*/
+  font-size: 40px;
 }
 
 .line {

@@ -36,7 +36,7 @@ app.controller('ArticleCtrl', [
           $scope.article = obj.val();
           $scope.$apply(function() {
             $scope.article,
-            $scope.setBackgroundImage()
+            setBackgroundImage($scope.article.jumbotronImageUrl)
           });
         });
       }
@@ -48,11 +48,6 @@ app.controller('ArticleCtrl', [
         $scope.featured = obj.val();
         $scope.$apply(function() {$scope.featured});
       });
-
-      $scope.setBackgroundImage = function() {
-        $(".jumbotron").css("background","url('"+$scope.article.jumbotronImageUrl+"') no-repeat center center");
-        $(".jumbotron").css("background-size","cover");
-      }
     }
 ]);
 
@@ -82,18 +77,6 @@ app.directive('dynFbCommentBox', function () {
         }
     };
 });
-
-function getParameterByName(name, url) {
-    if (!url) {
-      url = window.location.href;
-    }
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
 
 
 app.directive("appMap", function () {
@@ -139,7 +122,7 @@ app.directive("appMap", function () {
 
                 var options = {
                     center: new google.maps.LatLng(scope.center.lat, scope.center.lng),
-                    zoom: 15
+                    zoom: 13
                 };
 
                 // create the map

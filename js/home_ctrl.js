@@ -7,40 +7,27 @@ app.controller('HomeCtrl', [
       $scope.jumbotronTitle = 'Outdoor Adventure Crew';
 
       $scope.advlog = {
-        title: "Rappelling Through Yankee Doodle Canyon",
-        image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
-        intro: "It all started late one night, near a middle-of-nowhere town called Leeds, UT. The sleepy town was well past its own bedtime. That didn’t stop a meet up of the best adventure crew around...",
-        link: "#/article?id=0"
-      };
-      $scope.gearrev = {
-        title: "Diamond Fork Canyon",
-        image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
-        intro: "What an incredible sunset...",
+        title: "Yellowstone",
+        image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/Yellowstone%2Ftitle_cropped_ys.jpg?alt=media&token=638b6cb9-7d87-4858-8f93-5d0ae331042c",
         link: "#/article?id=1"
       };
+      $scope.gearrev = {
+        title: "Alpine Liesure Co. Gear Review",
+        image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/alpineliesureco%2Ftitle_cropped_alpine.jpg?alt=media&token=042ee269-f637-4088-a6c5-5d742b75797d",
+        link: "#/gearrev_article?id=0"
+      };
       $scope.survtip = {
-        title: "An Afternoon in Capitol Reef",
-        image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
-        intro: "Nothing like deciding on a last minute trip from memorial day, we left at 1:00 in the afternoon and arrived by 4:00, to Utah's probably least-known national park...",
-        link: "#/article?id=2"
+        title: "3 Utah County Adventures you NEED to try this winter",
+        image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/winteractivitiessurvguide%2Ftitle_cropped.jpg?alt=media&token=78634308-07d9-42eb-9f42-b755261f9b77",
+        link: "#/survival_article?id=0"
       };
-      $scope.blog1 = {
-        title: "An Afternoon in Capitol Reef",
-        image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
-        intro: "It all started late one night, near a middle-of-nowhere town called Leeds, UT. The sleepy town was well past its own bedtime. That didn\’t stop a meet up of the best adventure crew around...",
-        link: "#/article?id=2"
-      };
-      $scope.blog2 = {
-        title: "Rappelling Through Yankee Doodle Canyon",
-        image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
-        intro: "It all started late one night, near a middle-of-nowhere town called Leeds, UT. The sleepy town was well past its own bedtime. That didn’t stop a meet up of the best adventure crew around...",
-        link: "#/article?id=0"
-      };
-      $scope.blog3 = {
-        title: "Rappelling Through Yankee Doodle Canyon",
-        image: "https://firebasestorage.googleapis.com/v0/b/outdooradventurecrew-a3400.appspot.com/o/yankeedoodle%2FUNADJUSTEDNONRAW_thumb_2a8.jpg?alt=media&token=29fabf84-fd67-4095-8315-dac27e07dd7f",
-        intro: "It all started late one night, near a middle-of-nowhere town called Leeds, UT. The sleepy town was well past its own bedtime. That didn’t stop a meet up of the best adventure crew around...",
-        link: "#/article?id=0"
-      };
+
+
+      $scope.featured = [];
+      var ref2 = firebase.database().ref().child('featured');
+      ref2.once('value').then(function(obj) {
+        $scope.featured = obj.val();
+        $scope.$apply(function() {$scope.featured});
+      });
     }
 ]);

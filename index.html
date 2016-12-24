@@ -3,7 +3,8 @@
   <title>Outdoor Adventure Crew</title>
   <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans|Permanent+Marker|Russo+One" rel="stylesheet">
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="p:domain_verify" content="dc03348a48dcdcac6f423cfd69284065"/>
 
   <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
   <script>
@@ -31,8 +32,10 @@
   <script src="js/article_ctrl.js"></script>
   <script src="js/gallery_ctrl.js"></script>
   <script src="js/gear_rev_ctrl.js"></script>
+  <script src="js/gear_rev_article_ctrl.js"></script>
   <script src="js/home_ctrl.js"></script>
   <script src="js/survival_ctrl.js"></script>
+  <script src="js/survival_article_ctrl.js"></script>
   <script src="js/contact_ctrl.js"></script>
 
 
@@ -54,7 +57,7 @@
         <a href="#/home">Outdoor Adventure Crew</a>
       </nav>
       <nav class="col-sm-7 text-right header-icons">
-        <a href="#/blog">Adventure Log</a><a href="#/gearrev">Reviews</a><a href="#/gallery">Gallery</a><a href="#/survival">Survival Guide</a>
+        <a href="#/blog">Adventure Log</a><a href="#/gearrev">Reviews</a><!--<a href="#/gallery">Gallery</a>--><a href="#/survival">Survival Guide</a>
       </nav>
     </div>
   </header>
@@ -100,7 +103,7 @@
         <div class="row r2 rtest image-row">
           <div class="col-sm-4">
             <a href="{{advlog.link}}" onclick="scrollToTop()">
-              <div class="text-center">
+              <div class="text-center article-icon">
                 <img src="{{advlog.image}}">
                 <h3 class='title-div-pm'>{{advlog.title}}</h3>
               </div>
@@ -108,7 +111,7 @@
           </div>
           <div class="col-sm-4">
             <a href="{{gearrev.link}}" onclick="scrollToTop()">
-              <div class="text-center">
+              <div class="text-center article-icon">
                 <img src="{{gearrev.image}}">
                 <h3 class='title-div-pm'>{{gearrev.title}}</h3>
               </div>
@@ -116,7 +119,7 @@
           </div>
           <div class="col-sm-4">
             <a href="{{survtip.link}}" onclick="scrollToTop()">
-              <div class="text-center">
+              <div class="text-center article-icon">
                 <img src="{{survtip.image}}">
                 <h3 class='title-div-pm'>{{survtip.title}}</h3>
               </div>
@@ -130,9 +133,9 @@
               <hr>
               <div class="row title-div-big text-center">- ABOUT US -</div>
               <hr>
-              <p class="p-bree"><span>Welcome to our site! We are the Outdoor Adventure Crew, a group of friends that loves being outdoors, experiencing the world around us, and inspiring others to do the same.</span></p>
+              <p class="p-bree"><span>Welcome to our site!  We are the Outdoor Adventure Crew, a group of friends that loves being outdoors, experiencing the world around us, and inspiring others to do the same.</span></p>
               <p class="p-opensans">Our goal is to help people understand that adventure is a state of mind not a destination, and that as such does not have to be expensive or extravagant. We want people to realize that you do not have to be a travel blogger, a mountain man or live out of a van to reap the benefits of the outdoors. YOU the student, the parent, the worker with a 9-5, the human, have a right to live life to it’s fullest, to explore the world around you, and to appreciate the beauty that surrounds us every day. Join us as we attempt to do the same, as we find beauty in our backyard and in turn find ourselves.</p>
-              <br>
+              <!-- <br> -->
               <p class="p-opensans-italic" style="margin-left:40px">“We do not adventure to escape life, we adventure so that life does not escape us”</p>
               <p class="p-bree" style="margin-left:80px">-The Crew</p>
               <hr>
@@ -146,26 +149,26 @@
           <br>
           <div class="row r2 rtest image-row">
             <div class="col-sm-4">
-              <a href="{{blog1.link}}" onclick="scrollToTop()">
-                <div class="text-center">
-                  <img src="{{blog1.image}}">
-                  <h3 class='title-div-pm'>{{blog1.title}}</h3>
+              <a href="{{featured[0].link}}" onclick="scrollToTop()">
+                <div class="text-center article-icon">
+                  <img src="{{featured[0].imageSrc}}">
+                  <h3 class='title-div-pm'>{{featured[0].title}}</h3>
                 </div>
               </a>
             </div>
             <div class="col-sm-4">
-              <a href="{{blog2.link}}" onclick="scrollToTop()">
-                <div class="text-center">
-                  <img src="{{blog2.image}}">
-                  <h3 class='title-div-pm'>{{blog2.title}}</h3>
+              <a href="{{featured[1].link}}" onclick="scrollToTop()">
+                <div class="text-center article-icon">
+                  <img src="{{featured[1].imageSrc}}">
+                  <h3 class='title-div-pm'>{{featured[1].title}}</h3>
                 </div>
               </a>
             </div>
             <div class="col-sm-4">
-              <a href="{{blog2.link}}" onclick="scrollToTop()">
-                <div class="text-center">
-                  <img src="{{blog2.image}}">
-                  <h3 class='title-div-pm'>{{blog2.title}}</h3>
+              <a href="{{featured[2].link}}" onclick="scrollToTop()">
+                <div class="text-center article-icon">
+                  <img src="{{featured[2].imageSrc}}">
+                  <h3 class='title-div-pm'>{{featured[2].title}}</h3>
                 </div>
               </a>
             </div>
@@ -210,7 +213,7 @@
           <div class="col-sm-4">
             <div class="top-spacing"></div>
             <hr>
-            <div class="text-center sidebar-title-div">Featured Articles</div><hr>
+            <div class="text-center sidebar-title-div-bree">Featured Articles</div><hr>
             <div class="sidebar-featured">
               <div ng-repeat="article in featured">
                 <div class="row">
@@ -225,8 +228,8 @@
                 </div>
               </div>
             </div>
-            <hr>
-            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISMENT]</a></div>
+            <!-- <hr>
+            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISEMENT]</a></div> -->
             <hr>
           </div>
         </div>
@@ -235,8 +238,8 @@
   </script>
 
   <script type="text/ng-template" id="/gearrev.html">
+
     <section class="jumbotron">
-      <br><br><br><br><br><br><br><br><br><br><br><br>
       <div class="container" id="jumbo-title">
         <div class="row">
           <h3>{{jumbotronTitle}}</h3>
@@ -248,48 +251,136 @@
         <div class="row">
 
           <div class="col-sm-8 main-blog">
-            <div id="main-blog-body">
-              <div class="row title-div text-center">- FEATURED REVIEWS -</div><br><br>
+            <div class="main-blog-body">
+              <div class="row title-div-big text-center">{{innerTitle}}</div><hr><br><br>
+
                 <div ng-repeat="article in articles">
-                  <div class="text-center">
-                    <a href="#/article" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a>
-                  </div>
-                  <h3>{{article.title}}</h3>
-                  <p>{{article.content}}...<a href="#/article" onclick="scrollToTop()" style="color: #20457c;"> {{readMore}}</a></p>
-                  <div class="main-blog-line"></div>
-                <br><br><br>
+                  <a href="{{article.link}}" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a><br><br>
+                  <a href="{{article.link}}" onclick="scrollToTop()"><p class="title-bree smaller-line-height">{{article.title}}</p></a>
+                  <p class="article-date">{{article.date}}</p>
+                  <p>{{article.intro}}<a href="{{article.link}}" onclick="scrollToTop()" style="color: #20457c;"> Click to read more...</a></p>
+                  <hr>
+                <br>
               </div>
             </div>
           </div>
 
 
           <div class="col-sm-4">
-            <!-- <div class="top-spacing"></div>
-            <div class="sidebar-content-blog">
-              <div class="text-center sidebar-title-div-big"><a href="#">ALL ENTRIES</a></div>
-              <div class="main-line"></div>
-              <div class="text-center sidebar-title-div-small"><a href="#">CLICK HERE TO SEE ALL</a></div>
-              <div class="main-line"></div>
+            <div class="top-spacing"></div>
+            <hr>
+            <div class="text-center sidebar-title-div-bree">Featured Articles</div><hr>
+            <div class="sidebar-featured">
+              <div ng-repeat="article in featured">
+                <div class="row">
 
-              <div class="text-center sidebar-title-div "><em>OR,</em> VIEW BY MONTH</div>
-              <div class="sidebar-border text-center">
-                <div ng-repeat="month in getMonthsArray()" class="sidebar-title-div">
-                  <a href=""><div id="month">{{month}} 2016</div></a>
+                  <div class="col-sm-2 sidebar-article-part1">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a><br><br>
+                  </div>
+                  <div class="col-sm-2 sidebar-article-part2">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><p class="sidebar-article-title">{{article.title}}</p></a>
+                    <p class="sidebar-article-date">{{article.date}}</p>
+                  </div>
                 </div>
-                <div class="main-line"></div>
-                <a href="" class="sidebar-title-div-small">OVER 8 MONTHS AGO</a>
-               </div>
+              </div>
             </div>
-            <br><br><br> -->
-            <div class="main-line"></div>
-            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISMENT]</a></div>
-            <div class="main-line"></div>
-
-
+            <!-- <hr>
+            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISEMENT]</a></div> -->
+            <hr>
           </div>
         </div>
+      </section>
     </div>
   </script>
+
+  <script type="text/ng-template" id="/gearrev_article.html">
+
+    <section class="jumbotron">
+      <div class="container" id="jumbo-title">
+        <div class="row">
+          <h3>{{article.jumbotronTitle}}</h3>
+          <h2>Date: {{article.date}}, Logged by: {{article.loggedBy}}</h2>
+        </div>
+      </div>
+    </section>
+    <div id="main">
+      <section class="container-fluid" id="main-container-blog">
+        <div class="row">
+
+          <div class="col-sm-8 main-blog">
+            <div class="main-blog-body">
+              <hr>
+              <div class="row title-div-article text-center">Review: </div>
+              <hr><br>
+              <div class="article-content" dynamic="article.articleContent"></div>
+              <!-- <div class="article-content" ng-bind-html="article.articleContent"></div> -->
+
+              <!-- <div class="article-content">
+                <p>Lauren Suissi a US Veteran started Alpine Leisure Co after ordering a hammock online and having it fail to meet her expectations. She commercially started making hammocks in August out of her home and now uses almost all of her free time making quality hammocks for customers.</p>
+                <p>One thing that Lauren is especially proud of, and feels differentiates her from her competitors is the fact that all of her hammocks, straps, etc are made entirely in the USA. The fabric is produced in North Carolina, the Hammock is sewn in North Carolina, and it ships from...you guessed it, North Carolina. </p>
+                <div class="inner-article-title-bree">What We Liked</div>
+                <p>We LOVED the material that Outdoor Leisure Co’s hammocks are made out of. Rather than being made out of your typical nylon parachute fabric, OLC’s hammocks are made out of a ripstop Nylon that is lighter, more durable, and (in our opinion) softer. </p>
+                <p>While somewhat standard in hammocks, we also liked the integration of the carabiners into the ends of the hammock. This makes for a very easy and quick setup of the hammock.</p>
+                <p>The final thing that we were big fans of as a group was how proud the owner was of the fact that her products are made in the USA. EVERYTHING is branded with “made in the USA” down to the straps. [Center pic 1]</p>
+                <div class="text-center center-pic landscape"><img ng-src="{{article.images[0]}}"></div>
+                <div class="inner-article-title-bree">Some Things We Would Improve</div>
+                <p>While we loved their hammocks, there were a few things that left us a little wanting. The first of which was the apparel. While we are a big fan of their logo and slogan, the shirts were a fairly basic black cotton tee. I imagine that this is due to the fact that they are a hammock company and that apparel is more of a side thought for die hard customers. Hopefully as they grow as a company, these lines will improve as well.</p>
+                <div class="inner-article-title-bree">Wrap-Up</div>
+                <p>While in a lot of ways a hammock is a hammock is a hammock, Alpine Leisure Co’s hammocks go above and beyond normal hammocks. They have truly aligned their product with their motto of “find comfort in nature” by providing an exceptionally easy to set up, and comfortable hammock. They are definitely worth the few extra dollars for someone who would like a little bit of a more comfortable experience outdoors.</p>
+                <div class="text-center center-pic portrait"><img ng-src="{{article.images[1]}}"></div>
+              </div> -->
+              <br>
+            </div>
+          </div>
+
+
+          <div class="col-sm-4">
+            <div class="top-spacing"></div>
+
+            <hr>
+            <div class="text-center"><p class="sidebar-title-div-bree">Featured Articles</p></div>
+            <hr>
+            <div class="sidebar-featured">
+              <div ng-repeat="article in featured">
+                <div class="row">
+
+                  <div class="col-sm-2 sidebar-article-part1">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a><br><br>
+                  </div>
+                  <div class="col-sm-2 sidebar-article-part2">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><p class="sidebar-article-title">{{article.title}}</p></a>
+                    <p class="sidebar-article-date">{{article.date}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- <hr>
+            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISEMENT]</a></div> -->
+
+
+            <hr>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="row">
+          <div class="col-sm-12" id="comment">
+            <h3>COMMENTS</h3>
+            <div class="fb-comments"
+                dyn-fb-comment-box
+                page-href="http://www.adamcthompson.com/oac/index.html#/survival_article?id={{id}}"
+                data-numposts="5">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </script>
+
 
   <script type="text/ng-template" id="/gallery.html">
     <section class="container" id="main-container">
@@ -348,26 +439,31 @@
               <br><hr>
               <div class="row title-div-article text-center">Log:</div>
               <hr><br>
-              <div class="article-content" ng-bind-html="article.articleContent"></div>
+              <div class="article-content" dynamic="article.articleContent"></div>
 
               <!-- <div class="article-content">
                 <p>Yellowstone made the perfect end to a great summer of adventures for our crew. Ethan had recently returned from his summer sales with thoughts of this trip getting him through the grueling summer. Needless to say, we were all really excited for this last hurrah before the school year started. We met on Wednesday afternoon and loaded up the cars, spending a little longer in Provo than we had anticipated before leaving. With 8 of us heading on the trip we had decided to take two cars. In hindsight one bigger car would have been much better both for logistics and fun. First key to a great experience on your Yellowstone trip: a great music playlist. As per usual we created a shared playlist and each added a couple of songs to it, making for a great car ride. We arrived late Wednesday night at the cabin about 30 min outside of the west entrance to the park. Tips and Things to know for Yellowstone: </p>
                 <div class="inner-article-title-bree">1. There are no buffalo in Yellowstone. Only American Bison. </div>
                 <p>Usually our trips are planned out from beginning to end. This trip, however, was played by ear, meaning we spent more time driving than we usually do. This is a great option for explorers who do not want to spend so much time hiking, and more time enjoying the beautiful scenery. The wildlife in Yellowstone is abundant (don't get too close!), and worth the trip, especially if you have kids travelling with you; thus, we, being basically small children at heart, enjoyed seeing BISON, moose, elk, bears, and other forms of fascinating creatures, both large and small. </p>
                 <div class="inner-article-title-bree">2. Bring new friends. </div>
-                <p>Our good friend [Side pic 1]Ming walked into the apartment as we planned the trip. Now, Ming is from China and has never left Utah (except for Los Angeles, which can hardly count as vacation...). He asked if he could come, and having an extra spot, we welcomed him into our crew. Yellowstone is a great place to bring new explorers as it has various levels of hikes that show America's heartland in all of its glory. </p>
+                <p>Our good friend Ming walked into the apartment as we planned the trip. Now, Ming is from China and has never left Utah (except for Los Angeles, which can hardly count as vacation...). He asked if he could come, and having an extra spot, we welcomed him into our crew. Yellowstone is a great place to bring new explorers as it has various levels of hikes that show America's heartland in all of its glory. </p>
+                <div class="side-pic-portrait"><img src="{{article.images[0]}}"></div>
                 <div class="inner-article-title-bree">3. Visit the Geothermal Features.</div>
                 <p>Mud pots make up one of the different geothermal features in the Park, along with geysers, fumaroles (steam vents), and hot springs. Many of these are found on "board walk" trails throughout the Park, including the Grand Prismatic Spring, Artist's Paint Pots, and, of course, Old Faithful. These trails are short and can be crowded. Don't let that stop you, though (unless you do NOT like people--in that case, we ask you to stay FAR from the mud pots...). </p>
                 <div class="inner-article-title-bree">4. Skipping up the steps of Uncle Tom's trail...not advised. </div>
                 <p>Uncle Tom's trail is one of the many trails at the Grand Canyon of Yellowstone, leading to a great point to view the Falls. It is definitely straight out of Teddy Roosevelt's CCC (Civilian Conservation Corps) plan as a massive staircase takes explorers down the side of the cliff to the viewing point. Going back up is a hike in and of itself, even if you are using the stairs. Don't skip. Also, watch out for ferrets. They don't care how fast you went up the staircase--they will charge (Ethan is still going to therapy...jk). They actually are not a problem. Just a funny moment of a rather feisty ferret. They don't charge unless provoked. </p>
+                <div class="side-pic-landscape"><img src="{{article.images[1]}}"></div>
                 <div class="inner-article-title-bree">5. Point Sublime is not quite as sublime as the trail leading up to it.</div>
-                <p>...however, it makes for a great place to let out your inner sloth [side pic 2] due to the fence at the point that we weirdly started hanging from, using all four limbs. Nobody was around, so why not show off our true selves (see photos). Anyways, the 1.4 mile hike is one to remember, as it displays Yellowstone in its full glory. It's great for any group as the look out points along the way are just as great, or greater as Sublime Point, so if you feel it's time to turn around, you don't need to feel like you are missing a ton. But were we to go back, we'd probably go the whole way again. </p>
+                <p>...however, it makes for a great place to let out your inner sloth due to the fence at the point that we weirdly started hanging from, using all four limbs. Nobody was around, so why not show off our true selves (see photos). Anyways, the 1.4 mile hike is one to remember, as it displays Yellowstone in its full glory. It's great for any group as the look out points along the way are just as great, or greater as Sublime Point, so if you feel it's time to turn around, you don't need to feel like you are missing a ton. But were we to go back, we'd probably go the whole way again. </p>
                 <div class="inner-article-title-bree">6. Nonetheless the hike along the Grand Canyon of Yellowstone to Point Sublime is definitely worth it. </div>
                 <p>Again, it is BE-A-U-TI-FUL, and definitely uncrowded!!! In general, there are many "off-the-beaten-path" trails to take, that do take you away from the heavy crowds. Talk to park rangers; they are glad to point out the more secluded hikes. </p>
+                <div class="side-pic-portrait"><img src="{{article.images[2]}}"></div>
                 <div class="inner-article-title-bree">7. You're never too old to be a junior ranger. </div>
-                <p>There is a ton to learn in Yellowstone. What was great about this experience was how much we took in just by being at the Park. Earning our junior ranger badges together (as 20 to 26 year olds) was a highlight of our trip and a great bonding experience. [side pic 3] You may not be as weird and choose not to do so, but do find opportunities to learn about this almost seemingly unreal place while you are there. </p>
+                <p>There is a ton to learn in Yellowstone. What was great about this experience was how much we took in just by being at the Park. Earning our junior ranger badges together (as 20 to 26 year olds) was a highlight of our trip and a great bonding experience.  You may not be as weird and choose not to do so, but do find opportunities to learn about this almost seemingly unreal place while you are there. </p>
                 <div class="inner-article-title-bree">8. Be cautious of electronics while hiking near waterfalls... </div>
                 <p>...because sometimes you get your phone wet and it, well, dies. Mystic falls, not too far from the Grand Prismatic Spring, are near the end of a lovely, easy hike. The falls are beautiful but Brayden dropped his phone. What a goober. The hike connects to a four to seven mile hike up the mountain (there are multiple trails to the top). From the end of that hike, you can see half of all the geysers in the world. Pretty rad. [center pic 4]</p>
+                <div class="center-pic landscape"><img src="{{article.images[3]}}"></div>
+                <div class="side-pic-portrait"><img src="{{article.images[4]}}"></div>
                 <div class="inner-article-title-bree">9. Christmas music in August is sometimes appropriate, especially in a cabin. </div>
                 <p>Okay. Listen. We know some people have this whole "don't listen to Christmas music before Thanksgiving" rule, but when Ming turns on Frank Sinatra's Christmas album as you have a cozy fire going on in your rustic cabin, it makes for a pretty comfy experience. [side pic 5] But in all seriousness, do make sure you and your fellow explorers are comfortable, whether you are in tents or in cabins. Yellowstone is an "all-ages welcome" experience and it is built that way. It is meant to accommodate for all levels of explorer. </p>
                 <div class="inner-article-title-bree">10. "me gusta carne de lengua" y "me gusta LA lengua" no son lo mismo ;) </div>
@@ -402,13 +498,13 @@
 
 
 
-            <hr>
-            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISMENT]</a></div>
+            <!-- <hr>
+            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISEMENT]</a></div> -->
 
 
             <hr>
             <!-- <p class="sidebar-title-bree">Where We Camped</p> -->
-            <app-map style="height:300px;" center="loc"></app-map>
+            <app-map style="height:375px;" center="loc"></app-map>
 
             <br><br><br>
           </div>
@@ -441,8 +537,8 @@
 
 
   <script type="text/ng-template" id="/survival.html">
+
     <section class="jumbotron">
-      <br><br><br><br><br><br><br><br><br><br><br><br>
       <div class="container" id="jumbo-title">
         <div class="row">
           <h3>{{jumbotronTitle}}</h3>
@@ -454,16 +550,16 @@
         <div class="row">
 
           <div class="col-sm-8 main-blog">
-            <div id="main-blog-body">
-              <div class="row title-div text-center">- FEATURED ARTICLES -</div><br><br>
+            <div class="main-blog-body">
+              <div class="row title-div-big text-center">{{innerTitle}}</div><hr><br><br>
+
                 <div ng-repeat="article in articles">
-                  <div class="text-center">
-                    <a href="#/article" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a>
-                  </div>
-                  <h3>{{article.title}}</h3>
-                  <p>{{article.content}}...<a href="#/article" onclick="scrollToTop()" style="color: #20457c;"> {{readMore}}</a></p>
-                  <div class="main-blog-line"></div>
-                <br><br><br>
+                  <a href="{{article.link}}" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a><br><br>
+                  <a href="{{article.link}}" onclick="scrollToTop()"><p class="title-bree smaller-line-height">{{article.title}}</p></a>
+                  <p class="article-date">{{article.date}}</p>
+                  <p>{{article.intro}}<a href="{{article.link}}" onclick="scrollToTop()" style="color: #20457c;"> Click to read more...</a></p>
+                  <hr>
+                <br>
               </div>
             </div>
           </div>
@@ -471,29 +567,122 @@
 
           <div class="col-sm-4">
             <div class="top-spacing"></div>
-            <!-- <div class="sidebar-content-blog">
-              <div class="text-center sidebar-title-div-big"><a href="#">ALL ENTRIES</a></div>
-              <div class="main-line"></div>
-              <div class="text-center sidebar-title-div-small"><a href="#">CLICK HERE TO SEE ALL</a></div>
-              <div class="main-line"></div>
+            <hr>
+            <div class="text-center sidebar-title-div-bree">Featured Articles</div><hr>
+            <div class="sidebar-featured">
+              <div ng-repeat="article in featured">
+                <div class="row">
 
-              <div class="text-center sidebar-title-div "><em>OR,</em> VIEW BY MONTH</div>
-              <div class="sidebar-border text-center">
-                <div ng-repeat="month in getMonthsArray()" class="sidebar-title-div">
-                  <a href=""><div id="month">{{month}} 2016</div></a>
+                  <div class="col-sm-2 sidebar-article-part1">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a><br><br>
+                  </div>
+                  <div class="col-sm-2 sidebar-article-part2">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><p class="sidebar-article-title">{{article.title}}</p></a>
+                    <p class="sidebar-article-date">{{article.date}}</p>
+                  </div>
                 </div>
-                <div class="main-line"></div>
-                <a href="" class="sidebar-title-div-small">OVER 8 MONTHS AGO</a>
-               </div>
+              </div>
             </div>
-            <br><br><br> -->
-            <div class="main-line"></div>
-            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISMENT]</a></div>
-            <div class="main-line"></div>
-
-
+            <!-- <hr>
+            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISEMENT]</a></div> -->
+            <hr>
           </div>
         </div>
+      </section>
+    </div>
+  </script>
+
+  <script type="text/ng-template" id="/survival_article.html">
+
+    <section class="jumbotron">
+      <div class="container" id="jumbo-title">
+        <div class="row">
+          <h3>{{article.jumbotronTitle}}</h3>
+          <h2>Date: {{article.date}}, Logged by: {{article.loggedBy}}</h2>
+        </div>
+      </div>
+    </section>
+    <div id="main">
+      <section class="container-fluid" id="main-container-blog">
+        <div class="row">
+
+          <div class="col-sm-8 main-blog">
+            <div class="main-blog-body">
+              <hr>
+              <div class="row title-div-article text-center">Survival Guide: </div>
+              <hr><br>
+              <div class="article-content" dynamic="article.articleContent"></div>
+              <!-- <div class="article-content" ng-bind-html="article.articleContent"></div> -->
+
+              <!-- <div class="article-content">
+                <p>As winter finally sets in here in Utah, many people put away their camping gear and call it a season, content to curl up by a fire with a book and reminisce about all the adventures they have had over the course of the year. Unfortunately, those who do this miss out on a whole side of the outdoor spectrum that Utah has to offer. Don’t believe me? Let the silence, all sound deadened by fresh snow, and the feel of snow crunching under your feet convince you. </p>
+                <p>While an experience unlike perhaps anything else you’ve ever tried, winter hiking, snowshoeing and cross country skiing need to be approached with more caution than other adventures. Proper gear needs to be acquired and plans need to be made to ensure that as much risk is avoided as possible. </p>
+                <p>To help with this, we have made a list of our top three favorite places here in Utah County to dip your toes into the (frozen) pond of winter adventure. </p>
+                <div class="inner-article-title-bree">Big Springs Hollow Trail</div>
+                <p>This park and accompanying trail provide an awesome place to explore for beginning snowshoers and cross country skiers. We really like this trail because it has a good variety of trails to explore and fields to romp around in and due to the amount of interconnected small trails in the area, it is fairly easy to go for a quick jaunt or a long hike. </p>
+                <p><span>More Information:</span> <a href="http://provo-canyon-parks.weebly.com/big-springs.html">http://provo-canyon-parks.weebly.com/big-springs.html</a></p>
+                <p><span>Directions:</span> <a href="https://goo.gl/maps/K3C4cfpvunt">https://goo.gl/maps/K3C4cfpvunt</a></p>
+                <div class="inner-article-title-bree">American Fork Canyon</div>
+                <p>A hiking, climbing, swimming, kayaking, and all around adventurer’s paradise during Spring, Summer, and Fall, American Fork Canyon turns into a winter-sports wonderland when the snow falls. The canyon is awesome because it offers a spectrum of trail difficulties and special snowshoe/ski areas. For beginners, the Forest Service converts Little Mill, and Granite Flat Campground into ski/snowshoe areas with miles of groomed trails. For more advanced explorers, the myriad of roads and trails offer adventures to your hearts delight. </p>
+                <p>NOTE: American Fork Canyon is very avalanche prone, please check conditions and take the appropriate gear (warm clothes, beacon, probe etc). </p>
+                <p><span>More Information:</span> <a href="http://www.fs.usda.gov/detail/uwcnf/passes-permits/recreation/?cid=STELPRDB5043532">http://www.fs.usda.gov/detail/uwcnf/passes-permits/recreation/?cid=STELPRDB5043532</a></p>
+                <p><span>Directions:</span> <a href="https://goo.gl/maps/K3C4cfpvunt">https://goo.gl/maps/K3C4cfpvunt</a></p>
+                <div class="inner-article-title-bree">Stewart Falls</div>
+                <p>While this trail can be done with snowshoes or skis, this hike gets enough foot traffic that the snow is pretty reasonably packed and can be traversed without gear. The major perk of this hike is the huge frozen waterfall at the end. This frozen, multi-level monolith is truly a sight to behold. </p>
+                <p><span>More Information:</span> <a href="https://utah.com/hiking/stewart-falls">https://utah.com/hiking/stewart-falls</a></p>
+                <p><span>Directions:</span> <a href="https://goo.gl/maps/QtXrWL2o6Ur">https://goo.gl/maps/QtXrWL2o6Ur</a></p>
+                <p>While these are a few of our favorites, there are a plethora of other options to explore within minutes of the valley, so go get your coat, pack some hot chocolate, and let us know how it goes! Don’t forget to let someone know of your plan, and when you’ll be back! </p>
+                <br><div class="text-center"><iframe frameBorder="0" src="https://youtube.com/embed/Y25PJaX7Mm4"></iframe></div>
+              </div> -->
+              <br>
+            </div>
+          </div>
+
+
+          <div class="col-sm-4">
+            <div class="top-spacing"></div>
+
+            <hr>
+            <div class="text-center"><p class="sidebar-title-div-bree">Featured Articles</p></div>
+            <hr>
+            <div class="sidebar-featured">
+              <div ng-repeat="article in featured">
+                <div class="row">
+
+                  <div class="col-sm-2 sidebar-article-part1">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><img src="{{article.imageSrc}}"></a><br><br>
+                  </div>
+                  <div class="col-sm-2 sidebar-article-part2">
+                    <a href="{{article.link}}" onclick="scrollToTop()"><p class="sidebar-article-title">{{article.title}}</p></a>
+                    <p class="sidebar-article-date">{{article.date}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- <hr>
+            <div class="text-center sidebar-title-div-small"><a href="#">[ADVERTISEMENT]</a></div> -->
+
+
+            <hr>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <div class="row">
+          <div class="col-sm-12" id="comment">
+            <h3>COMMENTS</h3>
+            <div class="fb-comments"
+                dyn-fb-comment-box
+                page-href="http://www.adamcthompson.com/oac/index.html#/survival_article?id={{id}}"
+                data-numposts="5">
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </script>
 
@@ -501,13 +690,64 @@
     <section class="jumbotron" id="jumbo-contact">
       <div class="container" id="jumbo-title-contact">
         <div class="row">
-          <h4>Let's get in contact!</h4>
-          <h4>We'd love to hear from you!</h4>
+          <h4>Contact us</h4>
         </div>
       </div>
     </section>
 
+
     <section class="container" id="contact-container">
+        <div id="contact-us-bg">
+          <div class="row" id="contact-us" style="font-size: 42px">
+            <div class="col-sm-12 text-left">
+              <hr>
+              <p class="p-bree">We want to hear from you!  Tell us about you, a recent adventure you’ve gone on, or one you would like to go on in the future, your dreams, your hopes, anything really!  Shoot us an email!</p>
+              <a class="p-opensans-big" style="margin-left:20px" href="mailto:outdooradventurecrew@gmail.com">outdooradventurecrew@gmail.com</a>
+              <!-- <br> -->
+              <p class="p-bree" style="margin-left:80px">-The Crew</p>
+              <hr>
+            </div>
+          </div>
+        </div>
+
+    </section>
+  </script>
+
+  <script type="text/ng-template" id="/promote.html">
+    <section class="jumbotron" id="jumbo-contact">
+      <div class="container" id="jumbo-title-contact">
+        <div class="row">
+          <h4>Promote with us</h4>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="container" id="contact-container">
+        <div id="contact-us-bg">
+          <div class="row" id="contact-us" style="font-size: 42px">
+            <div class="col-sm-12 text-left">
+              <hr>
+              <p class="p-opensans-big"><span>Are you a new business seeking to build awareness about your product or brand?  Are you an already established business seeking to continue to build on your existing consumer base?  Partnering with the Outdoor Adventure Crew is an excellent way to do both!</span>  We work with our partners to establish a purpose for the promotion (gain followers, build brand awareness etc.) and then build a promotion package to suite their specific needs and at a price that is easy on marketing budgets.</p>
+              <p class="p-opensans-big"><span>This could include:</span></p>
+              <ul class="p-opensans-big">
+                <li>Photos of us using your product posted on our outlets.</li>
+                <li>B-roll footage for you to use on your outlets, site etc.</li>
+                <li>Reviews of your product on our site and YouTube.</li>
+                <li>Giveaways</li>
+                <li>“Takeovers”</li>
+                <li>Features in our story </li>
+                <li style="font-style: italic">Anything else you can think of!</li>
+              </ul>
+              <p class="p-opensans-big">Why?  While social media marketing may seem like a silly place to spend your advertising dollars, the fact of the matter is that the average American spends around <span>11 hours and 20 min</span> on social media <span>EACH WEEK</span> this means that social media is becoming one of the largest ways people consume entertainment each day. Promoting with our group puts your product in front of customers and allows them to see your products in use in a natural way that, through the power of suggestion, allows them to envision themselves using your product in their life. </p>
+              <p class="p-opensans-big">Does it work? <span>ABSOLUTELY!</span> Take <a hred="https://www.instagram.com/alpineleisureco/">@alpineleisureco</a> for example. Through a follower based promotion package, we were able to grow their following on instagram by <span>more than 12%</span> which translates directly into increased sales. </p>
+              <p class="p-opensans-big">Send us an e-mail today (<a href="mailto:outdooradventurecrew@gmail.com">outdooradventurecrew@gmail.com</a>) to see what we can do for you! We look forward to working with you!</p>
+
+              <p class="p-bree" style="margin-left:80px">-The Crew</p>
+              <hr>
+            </div>
+          </div>
+        </div>
 
     </section>
   </script>
@@ -522,14 +762,14 @@
   <footer class="container-fluid">
     <div class="row text-center" id="footerrow">
 
-      <div class="col-sm-6 text-left" id="fleftnav">
-      <a href="#/subscribe">Subscribe to our email list</a><br>
-        <a href="#/contact">Contact us</a><br>
-        <a href="#/promote">Promote with us</a><br>
+      <div class="col-sm-4 text-left" id="fleftnav">
+      <!-- <a href="#/subscribe">Subscribe to our email list</a><br> -->
+        <a href="#/contact" onclick="scrollToTop()">Contact us</a><br>
+        <a href="#/promote" onclick="scrollToTop()">Promote with us</a><br>
       </div>
-      <div class="col-sm-6 text-right" id="frightnav">
-      <a id="promote" href="#/promote">FOLLOW US! </a>
-      <a href="https://www.instagram.com/outdooradventurecrew/"><img src="images/socialmedia/instagram.png"></a><a href="https://www.facebook.com/outdooradventurecrew"><img src="images/socialmedia/facebook.png"></a><a href="#"><img src="images/socialmedia/youtube.png"></a><a href="#"><img src="images/socialmedia/vimeo.png"></a><a href="#"><img src="images/socialmedia/pinterest.png"></a><a href="#"><img src="images/socialmedia/flickr.png"></a><a href="#"><img src="images/socialmedia/tumblr.png"></a>
+      <div class="col-sm-8 text-right" id="frightnav">
+      <a href="https://www.instagram.com/outdooradventurecrew/">FOLLOW US!</a>
+      <a href="https://www.instagram.com/outdooradventurecrew/"><img src="images/socialmedia/instagram.png"></a><a href="https://www.facebook.com/outdooradventurecrew"><img src="images/socialmedia/facebook.png"></a><a href="https://www.youtube.com/channel/UCrQJ1WjL2YMK7ksa8xsg03g"><img src="images/socialmedia/youtube.png"></a><a href="https://www.pinterest.com/adventurecrew10"><img src="images/socialmedia/pinterest.png">
       </div>
     </div>
     <hr>
